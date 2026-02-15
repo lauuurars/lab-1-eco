@@ -25,7 +25,7 @@ export default function Home() {
 
             } catch (err) {
                 console.log(err)
-                setError("no se pudo conectar con la API :(");
+                setError("Error, revisa tu internet! (ᗒᗣᗕ)՞");
             } finally {
                 setLoading(false);
             }
