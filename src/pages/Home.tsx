@@ -21,8 +21,16 @@ export default function Home() {
                 setError(null);
 
                 const data = await getAnimes(filters);
-                setAnimeList(data);
 
+                const sortedData = [...data].sort((a, b) => {
+                    if (filters.sort === "desc") {
+                        return (b.score ?? 0) - (a.score ?? 0);
+                    } else {
+                        return (a.score ?? 0) - (b.score ?? 0);
+                    }
+                });
+
+                setAnimeList(sortedData);
             } catch (err) {
                 console.log(err)
                 setError("Error, revisa tu internet! (ᗒᗣᗕ)՞");
