@@ -1,11 +1,19 @@
-import type { AnimeResponse } from "../types/AnimeType";
+export const getAnimes = async (filters: {
+    name: string;
+    type: string;
+    sort: string;
+}) => {
+    const { name, type, sort } = filters;
 
-export const getAnimes = async (): Promise<AnimeResponse> => {
-    const response = await fetch("https://api.jikan.moe/v4/top/anime?limit=15");
+    const API = `https://api.jikan.moe/v4/anime?q=${name}&type=${type}&order_by=score&sort=${sort}`;
+
+    const response = await fetch(API);
 
     if (!response.ok) {
-        throw new Error("Error obteniendo animes :c");
+        throw new Error("Error conectando a la API :P");
     }
 
-    return response.json();
+    const data = await response.json();
+
+    return data.data;
 };
