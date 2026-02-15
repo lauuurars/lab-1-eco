@@ -21,18 +21,8 @@ export default function Home() {
                 setError(null);
 
                 const data = await getAnimes(filters);
+                setAnimeList(data);
 
-                let filteredData = data;
-
-                if (filters.name.trim() !== "") {
-                    filteredData = data.filter((anime: Anime) =>
-                        anime.title
-                            .toLowerCase()
-                            .includes(filters.name.toLowerCase().trim())
-                    );
-                }
-
-                setAnimeList(filteredData);
             } catch (err) {
                 console.log(err)
                 setError("Error, revisa tu internet! (ᗒᗣᗕ)՞");
