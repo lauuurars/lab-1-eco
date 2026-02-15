@@ -44,7 +44,7 @@ export default function Home() {
     return (
         <div className="min-h-screen bg-gray-900 text-white p-6">
             <Filters onFilterChange={setFilters} />
-            <h1 className="flex justify-center text-4xl font-bold mb-10 mt-8">Crunchybowl!!!</h1>
+            <h1 className="flex justify-center text-4xl font-bold mb-10 mt-8">Anime Store ꉂ(˵˃ ᗜ ˂˵)!!</h1>
 
             {loading && (
                 <div className="flex justify-center items-center min-h-screen">
